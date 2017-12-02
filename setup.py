@@ -37,7 +37,5 @@ setup(
     keywords='BitX Bitcoin exchange API',
     classifiers=[],
     test_suite='tests',
-    tests_require=[
-        'requests-mock>=0.7.0'
-    ]
+    extras_require={'dev': ['requests-mock>=0.7.0']}
 )
