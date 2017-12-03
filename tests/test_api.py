@@ -67,8 +67,8 @@ class TestAPICalls(unittest.TestCase):
     @staticmethod
     def make_auth_header(auth):
         s = ':'.join(auth)
-        k = base64.b64encode(s)
-        return 'Basic %s' % (k,)
+        k = base64.b64encode(s.encode('utf-8'))
+        return 'Basic %s' % (k.decode('utf-8'),)
 
     def setUp(self):
         options = {

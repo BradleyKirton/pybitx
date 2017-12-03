@@ -1,16 +1,20 @@
-from pybitx.api import BitX
+from __future__ import print_function
+
 import os
 import pprint
+
+from pybitx.api import BitX
+
 
 pp = pprint.PrettyPrinter(indent=4, width=80)
 
 
 def format_call(name, results):
-    print '-'*80
-    print '%50s' % (name,)
-    print '-'*80
+    print('-'*80)
+    print('%50s' % (name,))
+    print('-'*80)
     pp.pprint(results)
-    print '-'*80
+    print('-'*80)
 
 
 def runDemo():
@@ -21,9 +25,9 @@ def runDemo():
         user = os.environ['BITX_KEY']
         password = os.environ['BITX_SECRET']
     else:
-        print "Note: I couldn't find a BITX_KEY environment variable. This means that none of the API queries\nthat " \
-              "require authentication will work. I'll carry on anyway, but make sure your credentials are available " \
-              "in the BITX_KEY and BITX_SECRET environment variables and run this demo again"
+        print("Note: I couldn't find a BITX_KEY environment variable. This means that none of the API queries\nthat "
+              "require authentication will work. I'll carry on anyway, but make sure your credentials are available "
+              "in the BITX_KEY and BITX_SECRET environment variables and run this demo again")
     api = BitX(user, password)
     kind = 'auth' if auth else 'none'
     format_call('  Ticker   ', api.get_ticker(kind))
